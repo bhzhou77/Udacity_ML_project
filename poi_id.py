@@ -162,7 +162,7 @@ cv = StratifiedShuffleSplit(labels, n_iter=100, test_size=0.3, random_state = 42
 ########################################################
 ################ 2. Random forest ######################
 ########################################################
-'''
+
 from sklearn.ensemble import RandomForestClassifier
 rfc = RandomForestClassifier()
 
@@ -175,12 +175,12 @@ parameters = dict(feature_selection__k=[5,10],
               random_forest__n_estimators=[50,100,200],
               random_forest__min_samples_split=[2,3,4,5,10])
 cv = StratifiedShuffleSplit(labels, n_iter=100, test_size=0.3, random_state = 42)
-'''
+
 
 ########################################################
-################ 3. svc ######################
+################ 3. svc ################################
 ########################################################
-'''
+
 from sklearn.svm import SVC
 svc = SVC()
 
@@ -192,7 +192,7 @@ pipeline = Pipeline(steps)
 parameters = dict(feature_selection__k=[5,10], 
               svc__kernel=['linear','poly','rbf','sigmoid'])
 cv = StratifiedShuffleSplit(labels, n_iter=100, test_size=0.3, random_state = 42)
-'''
+
 
 # gridsearchcv
 gscv = GridSearchCV(pipeline,param_grid=parameters,cv=cv,scoring='f1')
