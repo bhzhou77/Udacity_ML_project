@@ -156,7 +156,7 @@ steps = [('scaler',Min_Max_scaler),
 
 pipeline = Pipeline(steps)
 parameters = dict(feature_selection__k=[5,10])
-cv = StratifiedShuffleSplit(labels, 100, random_state = 42)
+cv = StratifiedShuffleSplit(labels, n_iter=100, test_size=0.3, random_state = 42)
 
 
 ########################################################
@@ -174,7 +174,7 @@ pipeline = Pipeline(steps)
 parameters = dict(feature_selection__k=[5,10], 
               random_forest__n_estimators=[50,100,200],
               random_forest__min_samples_split=[2,3,4,5,10])
-cv = StratifiedShuffleSplit(labels, 100, random_state = 42)
+cv = StratifiedShuffleSplit(labels, n_iter=100, test_size=0.3, random_state = 42)
 '''
 
 ########################################################
@@ -191,7 +191,7 @@ steps = [('scaler',Min_Max_scaler),
 pipeline = Pipeline(steps)
 parameters = dict(feature_selection__k=[5,10], 
               svc__kernel=['linear','poly','rbf','sigmoid'])
-cv = StratifiedShuffleSplit(labels, 100, random_state = 42)
+cv = StratifiedShuffleSplit(labels, n_iter=100, test_size=0.3, random_state = 42)
 '''
 
 # gridsearchcv
